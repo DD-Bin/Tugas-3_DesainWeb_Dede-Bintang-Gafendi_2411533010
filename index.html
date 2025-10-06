@@ -56,35 +56,7 @@
 
         <button id="installBtn" class="installButton" style="display:none;">Install PWA</button>
     </div>
-
-<script>
-  // Registrasi service worker
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then((reg) => console.log('Service Worker terdaftar:', reg))
-        .catch((err) => console.error('Gagal daftar Service Worker:', err));
-    });
-  }
-
-  // Tangani event beforeinstallprompt
-  let deferredPrompt;
-  const installBtn = document.getElementById('installBtn');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtn.style.display = 'block';
-  });
-
-  installBtn.addEventListener('click', async () => {
-    installBtn.style.display = 'none';
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User memilih: ${outcome}`);
-    deferredPrompt = null;
-  });
-</script>    
+    <script src="script.js"></script>
 </body>
 </html>
 
