@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas Desain Web</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">  
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="form-container">
+      <h1>Contact Me</h1>
+      <p>Silahkan kontak saya melalui email atau sekedar meninggal kan pesan menggunakan form dibawah</p>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Nama:</label>
+          <input type="text" id="name" name="name" class="input-text" placeholder="Masukkan nama anda" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" class="input-text" 
+                 pattern=".+@.+\..+" title="Gunakan format email yang valid" 
+                 placeholder="Masukkan Email anda" required>
+        </div>
+
+        <div class="form-group">
+          <label for="kategori">Kategori Pesan:</label>
+          <select id="kategori" name="kategori" required>
+            <option value="">-- Pilih Kategori --</option>
+            <option value="saran">Saran</option>
+            <option value="kritik">Kritik</option>
+            <option value="pertanyaan">Pertanyaan</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pesan">Pesan:</label>
+          <textarea id="pesan" name="pesan" class="input-text" placeholder="Tinggalkan Pesan" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Ingin menerima balasan?</label>
+          <div class="radio-group">
+            <input type="radio" id="ya" name="balasan" value="ya" required>
+            <label for="ya">Ya</label><br>
+            <input type="radio" id="tidak" name="balasan" value="tidak" required>
+            <label for="tidak">Tidak</label>
+          </div>
+        </div>
+
+        <input type="submit" value="Submit" class="submit-button">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // cegah reload halaman
+      alert('Form berhasil dikirim!'); // tampilkan pesan
+      form.reset(); // kosongkan form setelah submit
+    });
+  </script>
+</body>
+</html>

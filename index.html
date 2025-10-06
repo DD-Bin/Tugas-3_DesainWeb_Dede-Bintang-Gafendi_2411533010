@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Desain Web</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="android-chrome-512x512.png" type="image/png">
+    <link rel="apple-touch-icon" href="android-chrome-192x192.png">
+    <meta name="theme-color" content="#317EFB">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+        <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        </nav>
+        </div>
+    <div class="portofolio-container">
+        <h1 class="padding-text">PWA</h1>
+        <p class="padding-text">
+         Website ini kini telah dikembangkan menggunakan teknologi Progressive Web App (PWA), yaitu teknologi modern yang 
+         menggabungkan keunggulan website dan aplikasi mobile dalam satu platform. Dengan adanya PWA, pengguna dapat menikmati pengalaman 
+         layaknya menggunakan aplikasi, tanpa perlu mengunduhnya dari Play Store atau App Store.</p>
+
+        <p class="padding-text">
+         PWA dirancang agar website tetap cepat, aman, dan dapat diakses kapan saja — bahkan saat koneksi internet tidak tersedia. 
+         Teknologi ini menggunakan service worker untuk menyimpan file penting seperti halaman HTML, CSS, JavaScript, dan gambar di dalam cache, 
+         sehingga halaman masih bisa diakses walaupun pengguna sedang offline.</p>
+
+
+         <h3 style="color: #1565c0;" class="padding-text">✨ Fitur-Fitur PWA di Website Ini:</h3>
+         <ul style="color: #000000; text-align: left; display: inline-block; margin-top: 10px; font-family: sans-serif; font-weight: lighter;">
+        <li class="padding-text">
+          Offline Support — Website tetap bisa diakses walaupun pengguna kehilangan koneksi internet.
+        </li>
+        <li class="padding-text">
+          Cache Management — File penting disimpan di browser untuk mempercepat waktu loading.
+        </li>
+        <li class="padding-text">
+          Auto Update — Cache lama otomatis dihapus dan diganti dengan versi terbaru.
+        </li>
+        <li class="padding-text">
+          Fast Loading — Halaman dimuat lebih cepat karena file diambil langsung dari cache lokal.
+        </li>
+        <li class="padding-text">
+          Installable — Dengan file manifest dan event beforeinstallprompt, pengguna dapat menambahkan website ke layar utama seperti aplikasi mobile.
+        </li>
+        </ul>
+
+        <button id="installBtn" class="installButton" style="display:none;">Install PWA</button>
+    </div>
+
+<script>
+  // Registrasi service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((reg) => console.log('Service Worker terdaftar:', reg))
+        .catch((err) => console.error('Gagal daftar Service Worker:', err));
+    });
+  }
+
+  // Tangani event beforeinstallprompt
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'block';
+  });
+
+  installBtn.addEventListener('click', async () => {
+    installBtn.style.display = 'none';
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User memilih: ${outcome}`);
+    deferredPrompt = null;
+  });
+</script>    
+</body>
+</html>
+
