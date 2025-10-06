@@ -1,18 +1,18 @@
 // Nama cache dan versi
 const CACHE_NAME = 'dede-pwa-v1';
-const OFFLINE_PAGE = '/offline.html';
+const OFFLINE_PAGE = './offline.html';
 
 // Daftar file yang akan di-cache
 const urlsToCache = [
   './',
-  'index.html',
-  'about.html',
-  'contact.html',
-  'styles.css',
-  'profile.jpg',
-  'offline.html',
-  'android-chrome-192x192.png',
-  'android-chrome-512x512.png'
+  './index.html',
+  './about.html',
+  './contact.html',
+  './styles.css',
+  './profile.jpg',
+  './offline.html',
+  './android-chrome-192x192.png',
+  './android-chrome-512x512.png'
 ];
 
 // Install event – caching aset statis
