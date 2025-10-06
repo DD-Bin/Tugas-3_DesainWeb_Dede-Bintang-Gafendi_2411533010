@@ -5,14 +5,14 @@ const OFFLINE_PAGE = './offline.html';
 // Daftar file yang akan di-cache
 const urlsToCache = [
   './',
-  './index.html',
-  './about.html',
-  './contact.html',
-  './styles.css',
-  './profile.jpg',
-  './offline.html',
-  './android-chrome-192x192.png',
-  './android-chrome-512x512.png'
+  'index.html',
+  'about.html',
+  'contact.html',
+  'styles.css',
+  'profile.jpg',
+  'offline.html',
+  'android-chrome-192x192.png',
+  'android-chrome-512x512.png'
 ];
 
 // Install event – caching aset statis
@@ -47,21 +47,18 @@ self.addEventListener('activate', (event) => {
 });
 
 // Fetch event – strategi Cache First dengan fallback offline
-// fetch
-self.addEventListener("fetch", (event) => {
-  if (event.request.mode === "navigate") {
-    // if user minta halaman baru, fallback ke offline.html saat offline
-    event.respondWith(
-      fetch(event.request)
-        .then((response) => response)
-        .catch(() => caches.match("./offline.html"))
-    );
-  } else {
-    // asset load dari cache atau fetch
-    event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
-        return cachedResponse || fetch(event.request);
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => {
+        // Jika ada di cache, tampilkan
+        if (response) return response;
+
+        // Jika tidak ada, ambil dari jaringan
+        return fetch(event.request)
+          .catch(() => caches.match(OFFLINE_PAGE)); // fallback offline
       })
-    );
-  }
+  );
 });
