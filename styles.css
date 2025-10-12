@@ -1,3 +1,39 @@
+.container {
+    display: grid;
+    grid-template-rows: 70px auto;
+    height: 100%;
+    max-width: 100%;
+}
+
+.home-container {
+  background: #ffffff;
+  margin: 30px auto 100px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 80px rgba(0,0,0,0.1);
+  max-width: 900px;
+  width: 100%;
+}
+
+.about-container {
+    background: #ffffff;
+    margin: 30px auto 100px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 80px rgba(0,0,0,0.1);
+    max-width: 700px;
+    width: 100%;
+}
+
+.form-container {
+  background: #ffffff;
+  margin: 30px auto;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 80px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+  font-family: sans-serif;
+}
+
 .scrollable {
     height: 300px;
     overflow-y: scroll;
@@ -24,32 +60,11 @@ ul li {
     align-items: center;
 }
 
-ul {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    align-items: center;
-}
-
 body, html {
     margin: 0;
     height: 100%;
     background: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.container {
-    display: grid;
-    grid-template-rows: 70px auto;
-    height: 100%;
-    max-width: 6000px;
-}
-
-.container-index {
-    display: grid;
-    grid-template-rows: 70px auto;
-    height: 100%;
-    max-width: 9000px;
 }
 
 .top {
@@ -63,16 +78,12 @@ body, html {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.bottom {
-    background: #ffffff;
-    padding: 20px;
-}
-
 a {
     text-decoration: none;
     color: inherit;
     transition: color 0.3s ease;
 }
+
 a:hover {
     color: #0984e3;
 }
@@ -86,37 +97,13 @@ a:hover {
 }
 
 .profile-pic {
-    float:left ;
+    float:center; 
     width: 300px;
     height: 300px;
     border-radius: 3%;
-    margin-right: 20px;
-    margin-left: 50px;
     object-fit: cover;
-    box-shadow: 0 3px 8px rgba(0,0,0,1.15);
-}
-
-.contact {
-    display: inline-block; 
-    padding: 12px 24px; 
-    background: #00b894; 
-    color: #fff; 
-    text-decoration: none; 
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-}
-.contact:hover {
-    background: #009874;
-}
-
-.float {
-    text-align: center;
-    border: solid 1px #dfe6e9;
-    padding: 12px;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 8px rgba(0,0,0,1.15); 
+    margin-top: 30px;
 }
 
 .input-text {
@@ -143,8 +130,8 @@ select {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 select:focus {
-    border-color: #6c5ce7;
-    box-shadow: 0 0 6px rgba(108,92,231,0.4);
+    border-color: #0984e3;
+    box-shadow: 0 0 6px rgba(9,132,227,0.4);
     outline: none;
 }
 
@@ -154,34 +141,6 @@ select:focus {
     font-size: 16px;
 }
 
-.form-container {
-  background: #ffffff;
-  margin: 30px auto;
-  padding: 30px 40px;
-  border-radius: 10px;
-  box-shadow: 0 8px 80px rgba(0,0,0,0.1);
-  max-width: 600px;
-  width: 100%;
-  font-family: sans-serif;
-}
-
-.portofolio-container {
-  background: #ffffff;
-  margin: 30px auto 100px auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 80px rgba(0,0,0,0.1);
-  max-width: 900px;
-  width: 100%;
-}
-
-.about-container {
-    background: #ffffff;
-    margin: 30px auto 100px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 80px rgba(0,0,0,0.1);
-    max-width: 700px;
-    width: 100%;
-}
 
 .form-group {
   margin-bottom: 15px;
@@ -200,14 +159,15 @@ select:focus {
     align-items: center;
 }
 
+  .submit-button:hover {
+    background: #5a4bcf;
+  }
+
 @media (max-width: 480px) {
   form {
     padding: 20px 15px;
   }
 }
-  .submit-button:hover {
-    background: #5a4bcf;
-  }
 
 .installButton {
     background: #00b894;
